@@ -3,11 +3,11 @@
 <suite guice-stage="DEVELOPMENT" name="Failed suite [Suite]">
   <test thread-count="5" name="Test(failed)">
     <classes>
-      <class name="e2e.AppiumFramework.ECommerce_tc3">
+      <class name="e2e.AppiumFramework.GeneralStoreTest">
         <methods>
           <include name="totalValidation"/>
         </methods>
-      </class> <!-- e2e.AppiumFramework.ECommerce_tc3 -->
+      </class> <!-- e2e.AppiumFramework.GeneralStoreTest -->
     </classes>
   </test> <!-- Test(failed) -->
 </suite> <!-- Failed suite [Suite] -->

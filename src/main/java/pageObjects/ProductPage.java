@@ -19,11 +19,23 @@ public class ProductPage {
 	@AndroidFindBy(xpath = "//*[@text='ADD TO CART']")
 	private WebElement itemPick;
 
+	@AndroidFindBy(id = "com.androidsample.generalstore:id/appbar_btn_cart")
+	private WebElement cartBtn;
+
 	@AndroidFindBy(id = "com.androidsample.generalstore:id/productPrice")
 	private List<WebElement> productPrice;
 
-	@AndroidFindBy(id = "com.androidsample.generalstore:id/appbar_btn_cart")
-	private WebElement cartBtn;
+	@AndroidFindBy(className = "android.widget.CheckBox")
+	private WebElement checkbox;
+
+	@AndroidFindBy(id = "com.androidsample.generalstore:id/termsButton")
+	private WebElement termsCond;
+
+	@AndroidFindBy(id = "android:id/button1")
+	private WebElement closeTerms;
+
+	@AndroidFindBy(id = "com.androidsample.generalstore:id/btnProceed")
+	private WebElement btnProceed;
 
 	public WebElement getItemPick() {
 		return itemPick;
@@ -35,6 +47,22 @@ public class ProductPage {
 
 	public List<WebElement> getProductPrice() {
 		return productPrice;
+	}
+
+	public WebElement getCheckbox() {
+		return checkbox;
+	}
+
+	public WebElement getTermsCond() {
+		return termsCond;
+	}
+
+	public WebElement getCloseTerms() {
+		return closeTerms;
+	}
+
+	public WebElement getBtnProceed() {
+		return btnProceed;
 	}
 
 }

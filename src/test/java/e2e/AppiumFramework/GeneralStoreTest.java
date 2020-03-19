@@ -33,16 +33,16 @@ public class GeneralStoreTest extends Base {
 
 		AndroidDriver<AndroidElement> dr = Capabilities("GeneralStoreApp");
 
-		SignInPage fp = new SignInPage(dr);
+		SignInPage sp = new SignInPage(dr);
 
-		fp.getCountrySelection().click();
+		sp.getCountrySelection().click();
 		Utilities u = new Utilities(dr);
 		u.scrollToText("Belgium").click();
 
-		fp.getNameField().sendKeys("hello");
+		sp.getNameField().sendKeys("hello");
 		dr.hideKeyboard(); // nice :)
-		fp.getFemaleOption().click();
-		fp.getLetsShopBtn().click();
+		sp.getFemaleOption().click();
+		sp.getLetsShopBtn().click();
 
 		ProductPage pp = new ProductPage(dr);
 		pp.getItemPick().click();
@@ -50,7 +50,6 @@ public class GeneralStoreTest extends Base {
 		pp.getCartBtn().click();
 
 		Thread.sleep(4000);
-		// checked untill here 18.03.2020
 
 		int count = pp.getProductPrice().size();
 		double sum = 0;
@@ -69,18 +68,15 @@ public class GeneralStoreTest extends Base {
 		System.out.println("total value is: " + totalValue);
 		Assert.assertEquals(sum, totalValue);
 
-		// leicture 60 - Assignment 5 - long press, mobile gesture
-		// we are dealing with mobile gesture TAP instead .click which will work also
-		WebElement checkbox = dr.findElementByClassName("android.widget.CheckBox");
 		TouchAction t = new TouchAction(dr);
-		t.tap(tapOptions().withElement(element(checkbox))).perform();
+		t.tap(tapOptions().withElement(element(pp.getCheckbox()))).perform();
+		t.longPress(longPressOptions().withElement(element(pp.getTermsCond())).withDuration(Duration.ofSeconds(5)))
+				.perform().release();
 
-		WebElement terms = dr.findElementByAndroidUIAutomator("text(\"Please read our terms of conditions\")");
-		t.longPress(longPressOptions().withElement(element(terms)).withDuration(Duration.ofSeconds(5))).perform()
-				.release();
+		pp.getCloseTerms().click();
+		pp.getBtnProceed().click();
 
-		dr.findElementById("android:id/button1").click();
-		dr.findElementById("com.androidsample.generalstore:id/btnProceed").click();
+		// 19.03 - need to fix nullPointerException
 
 		// section 9 - leicture 61/62 - Assignment 6 - Verify if user can do operatios
 		// on web view and can navigate back to Native app if needed
