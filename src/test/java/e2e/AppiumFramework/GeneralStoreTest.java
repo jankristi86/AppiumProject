@@ -9,6 +9,7 @@ import org.openqa.selenium.By;
 import org.openqa.selenium.Keys;
 import org.openqa.selenium.WebElement;
 import org.testng.Assert;
+import org.testng.annotations.BeforeTest;
 import org.testng.annotations.Test;
 
 import io.appium.java_client.TouchAction;
@@ -76,10 +77,11 @@ public class GeneralStoreTest extends Base {
 		pp.getCloseTerms().click();
 		pp.getBtnProceed().click();
 
-		// 19.03 - need to fix nullPointerException
+		// 19.03 - need to fix nullPointerException - with kill all nodes I guess it's
+		// done . need to test it.
 
-		// section 9 - leicture 61/62 - Assignment 6 - Verify if user can do operatios
-		// on web view and can navigate back to Native app if needed
+		// Verify if user can do operatios on web view and can navigate back to Native
+		// app if needed
 		Thread.sleep(6000);
 		Set<String> contexts = dr.getContextHandles();
 		for (String contextName : contexts) {
@@ -97,7 +99,12 @@ public class GeneralStoreTest extends Base {
 
 	}
 
-	// leicture 58- code optimization
+	@BeforeTest
+	public void killAllNodes() throws IOException, InterruptedException {
+		Runtime.getRuntime().exec(System.getProperty("user.dir") + "\\src\\main\\java\\resources\\killAllNodes.bat");
+		Thread.sleep(3000);
+	}
+
 	public static double getAmount(String value) {
 		// removing $ with substring $120.00 and parsing into double
 

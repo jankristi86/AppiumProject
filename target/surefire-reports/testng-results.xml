@@ -1,0 +1,35 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<testng-results skipped="0" failed="0" ignored="0" total="2" passed="2">
+  <reporter-output>
+  </reporter-output>
+  <suite name="Suite" duration-ms="59804" started-at="2020-03-21T15:47:00 CET" finished-at="2020-03-21T15:48:00 CET">
+    <groups>
+    </groups>
+    <test name="Test" duration-ms="59804" started-at="2020-03-21T15:47:00 CET" finished-at="2020-03-21T15:48:00 CET">
+      <class name="e2e.AppiumFramework.ApiDemoTest">
+        <test-method status="PASS" signature="apiDemoTest(java.lang.String)[pri:0, instance:e2e.AppiumFramework.ApiDemoTest@2d6eabae]" name="apiDemoTest" duration-ms="34010" started-at="2020-03-21T15:47:00 CET" data-provider="InputData" finished-at="2020-03-21T15:47:34 CET">
+          <params>
+            <param index="0">
+              <value>
+                <![CDATA[hello]]>
+              </value>
+            </param>
+          </params>
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- apiDemoTest -->
+        <test-method status="PASS" signature="apiDemoTest(java.lang.String)[pri:0, instance:e2e.AppiumFramework.ApiDemoTest@2d6eabae]" name="apiDemoTest" duration-ms="25752" started-at="2020-03-21T15:47:34 CET" data-provider="InputData" finished-at="2020-03-21T15:48:00 CET">
+          <params>
+            <param index="0">
+              <value>
+                <![CDATA[@#$%]]>
+              </value>
+            </param>
+          </params>
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- apiDemoTest -->
+      </class> <!-- e2e.AppiumFramework.ApiDemoTest -->
+    </test> <!-- Test -->
+  </suite> <!-- Suite -->
+</testng-results>

@@ -13,11 +13,12 @@ import io.appium.java_client.android.AndroidElement;
 
 import pageObjects.HomePage;
 import pageObjects.Preferences;
+import resources.TestData;
 
 public class ApiDemoTest extends Base {
 
-	@Test
-	public void apiDemoTest() throws IOException, InterruptedException {
+	@Test(dataProvider = "InputData", dataProviderClass = TestData.class)
+	public void apiDemoTest(String input) throws IOException, InterruptedException {
 
 		service = startServer();
 
@@ -34,7 +35,7 @@ public class ApiDemoTest extends Base {
 		Thread.sleep(3000);
 		p.getWifiSetting().click();
 
-		p.getEditText().sendKeys("input");
+		p.getEditText().sendKeys(input);
 
 		p.getButtons().get(1).click();
 		service.stop();
